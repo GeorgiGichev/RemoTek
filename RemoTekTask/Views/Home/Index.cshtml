@@ -1,0 +1,36 @@
+﻿@model RemoTek.Services.DTOModels.OrdersModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Created on</th>
+            <th>Order`s number</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+            <tr>
+                <td>@order.Data.Slot.Data.CreatedDate</td>
+                <td>@order.Orders_id</td>
+                <td>@order.Data.Order_total.Plain_incl_VAT.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Created on</th>
+            <th>Order`s number</th>
+            <th>Value</th>
+        </tr>
+    </tfoot>
+</table>
